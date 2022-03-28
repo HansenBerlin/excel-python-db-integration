@@ -1,4 +1,4 @@
-import dataTypes as dT
+import data_types as dT
 from copy import deepcopy
 from foreign_key_model import ForeignKeyModel
 

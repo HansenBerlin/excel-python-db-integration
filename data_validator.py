@@ -1,6 +1,6 @@
 from datetime import datetime
-import column_model as cM
-import dataTypes as dT
+import column_model as cm
+import data_types as dT
 
 
 class DataValidator:
@@ -14,13 +14,15 @@ class DataValidator:
                 return True
         return False
 
-    def is_valid_foreign_key(self, column: cM, tables):
+    @staticmethod
+    def is_valid_foreign_key(column: cm, tables):
         for col in tables:
             if col.name is column.name:
                 return True
         return False
 
-    def is_valid_column_name(self, column_name: str, columns):
+    @staticmethod
+    def is_valid_column_name(column_name: str, columns):
         for k in columns.keys():
             if k is column_name:
                 return False

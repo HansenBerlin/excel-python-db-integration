@@ -1,8 +1,8 @@
 from copy import deepcopy
-from dataValidator import DataValidator
+from data_validator import DataValidator
 import column_model as cm
-import databaseExceptions as eX
-from randomDataCreator import RandomDataCreator
+import database_exceptions as eX
+from random_data_creator import RandomDataCreator
 
 
 class TableModel:

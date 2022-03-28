@@ -1,9 +1,8 @@
-import dataTypes as dT
+import data_types as dT
 from column_model import ColumnModel
-from dataValidator import DataValidator
 from foreign_key_model import ForeignKeyModel
-from randomDataCreator import RandomDataCreator
-from tableSchemaCreator import TableSchemaCreator
+from random_data_creator import RandomDataCreator
+from table_schema_creator import TableSchemaCreator
 from table_model import TableModel
 
 rnd_creator = RandomDataCreator()
@@ -29,7 +28,7 @@ table3.add_columns([col_one_y, col_two_y, col_three_y])
 
 table1.add_random_datasets(10)
 table2.add_random_datasets(50)
-table3.add_random_datasets(500)
+table3.add_random_datasets(1000)
 
 creator = TableSchemaCreator('testfile.txt')
 creator.create_table_schema_in_file(table1, False)
