@@ -4,6 +4,6 @@ from enum import Enum
 class DataTypes(Enum):
     VARCHAR = 'VARCHAR(128)'
     INT = 'INT'
-    DOUBLE = 'DOUBLE'
+    DOUBLE = 'DECIMAL(5,2)'
     DATETIME = 'DATETIME'
 

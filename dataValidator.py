@@ -1,5 +1,5 @@
 from datetime import datetime
-import columnModel as cM
+import column_model as cM
 import dataTypes as dT
 
 
