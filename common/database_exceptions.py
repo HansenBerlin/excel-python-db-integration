@@ -1,6 +1,6 @@
 class ForeignKeyReferenceNotFoundException(Exception):
-    def __init__(self, message='The reference the given foreign key is pointing at could\'t be found.'):
-        super().__init__(message)
+    def __init__(self, message):
+        super().__init__(f'The reference the given foreign key is pointing at could\'t be found. ({message})')
 
 
 class DatatypeCastingException(Exception):
@@ -9,8 +9,8 @@ class DatatypeCastingException(Exception):
 
 
 class ColumnNameAlreadyInUseException(Exception):
-    def __init__(self, message='Column name already in use in this table'):
-        super().__init__(message)
+    def __init__(self, message):
+        super().__init__(f'Column name {message} already in use in this table')
 
 
 class TableNameAlreadyInUseException(Exception):
@@ -19,6 +19,6 @@ class TableNameAlreadyInUseException(Exception):
 
 
 class RowAddingLockedException(Exception):
-    def __init__(self, message='Datasets were already added to this table. Column adding is locked.'):
-        super().__init__(message)
+    def __init__(self, message):
+        super().__init__(f'Datasets were already added to this table ({message}). Column adding is locked.')
 

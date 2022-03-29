@@ -6,8 +6,8 @@
   },
   "BirthdayRange":
   {
-    "AfterDate": "1990-01-01T00:00:00.511Z",
-    "BeforeDate": "2008-01-16T00:00:00.511Z"
+    "AfterDate": "1990-01-01",
+    "BeforeDate": "2008-01-16"
   },
   "TimeRangeForRuns":
   {
@@ -29,7 +29,12 @@
   },
   "PathToNameFiles":
   {
-    "FemaleLastNames": "femaleLastNames.json",
-    "FemaleFirstNames": "femaleFirstNames.json"
+    "FemaleLastNames": "data/femaleLastNames.json",
+    "FemaleFirstNames": "data/femaleFirstNames.json"
+  },
+  "DatabaseInfo":
+  {
+    "Name": "dsb_kocman",
+    "Schema": "women_rowing_trainingcamp"
   }
 }

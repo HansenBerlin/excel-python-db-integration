@@ -1,6 +1,7 @@
-import data_types as dt
+from common import data_types as dt
 from copy import deepcopy
-from foreign_key_model import ForeignKeyModel
+
+from models.foreign_key_model import ForeignKeyModel
 
 
 class ColumnModel:
