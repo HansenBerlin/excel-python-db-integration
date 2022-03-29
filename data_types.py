@@ -1,9 +1,26 @@
 from enum import Enum
 
 
-class DataTypes(Enum):
+class DbDataTypes(Enum):
     VARCHAR = 'VARCHAR(128)'
     INT = 'INT'
     DOUBLE = 'DECIMAL(5,2)'
     DATETIME = 'DATETIME'
+
+
+class RandomDataTypes(Enum):
+    FEMALEFIRSTNAME = 1
+    FEMALELASTNAME = 2
+    MALEFIRSTNAME = 3
+    MALELASTNAME = 4
+    GERMANSTATE = 5
+    SPORTSTEAM = 6
+    BOATNAME = 7
+    ID = 100
+    BIRTHDATE = 101
+    EVENTSTARTTIME = 102
+    DISTANCEINMETERS = 200
+    RUNINSECONDS = 201
+
+
 

@@ -32,9 +32,9 @@ class DataValidator:
     def __create_valid_data_pairs():
         dt = [type(str), type(float), type(int), type(datetime)]
         return {
-            dT.DataTypes.VARCHAR: [dt[0], dt[1], dt[2], dt[3]],
-            dT.DataTypes.DOUBLE: [dt[1], dt[2]],
-            dT.DataTypes.INT: [dt[2]],
-            dT.DataTypes.DATETIME: [dt[3]]
+            dT.DbDataTypes.VARCHAR: [dt[0], dt[1], dt[2], dt[3]],
+            dT.DbDataTypes.DOUBLE: [dt[1], dt[2]],
+            dT.DbDataTypes.INT: [dt[2]],
+            dT.DbDataTypes.DATETIME: [dt[3]]
         }
 

@@ -32,7 +32,7 @@ class TableModel:
                 elif v.is_fk:
                     data = self.__rnd_gen.create_matching_random_data(v.data_type, v.fk_model.ref_count)
                 else:
-                    data = self.__rnd_gen.create_matching_random_data(v.data_type, datasets_count)
+                    data = self.__rnd_gen.create_matching_random_data2(v.rand_data_info, datasets_count)
                 data_set.append(data)
             self.__rows.append(data_set)
 

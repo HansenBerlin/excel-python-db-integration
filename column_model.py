@@ -1,13 +1,14 @@
-import data_types as dT
+import data_types as dt
 from copy import deepcopy
 from foreign_key_model import ForeignKeyModel
 
 
 class ColumnModel:
-    def __init__(self, col_name: str, data_type: dT, is_pk: bool = False, not_null: bool = True,
-                 is_fk: bool = False, fk_model: ForeignKeyModel = None):
+    def __init__(self, col_name: str, data_type: dt, rand_data_info: dt.RandomDataTypes, is_pk: bool = False,
+                 not_null: bool = True, is_fk: bool = False, fk_model: ForeignKeyModel = None):
         self.name = col_name
         self.data_type = data_type
+        self.rand_data_info = rand_data_info
         self.is_pk = is_pk
         self.is_fk = is_fk
         self.data_type_text = f' {data_type.value}'

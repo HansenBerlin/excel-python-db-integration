@@ -1,0 +1,35 @@
+{
+  "Event":
+  {
+    "StartAfterDate": "2023-06-01 00:00:00",
+    "EndBeforeDate": "2023-06-16 00:00:00"
+  },
+  "BirthdayRange":
+  {
+    "AfterDate": "1990-01-01T00:00:00.511Z",
+    "BeforeDate": "2008-01-16T00:00:00.511Z"
+  },
+  "TimeRangeForRuns":
+  {
+    "BoatWithThreePeople":
+    {
+      "MinTimeInSecs": 60,
+      "MaxTimeInSecs": 80
+    },
+    "BoatWithFourPeople":
+    {
+      "MinTimeInSecs": 50,
+      "MaxTimeInSecs": 70
+    },
+    "BoatWithFivePeople":
+    {
+      "MinTimeInSecs": 40,
+      "MaxTimeInSecs": 60
+    }
+  },
+  "PathToNameFiles":
+  {
+    "FemaleLastNames": "femaleLastNames.json",
+    "FemaleFirstNames": "femaleFirstNames.json"
+  }
+}
