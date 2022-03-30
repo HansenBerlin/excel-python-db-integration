@@ -3,8 +3,9 @@ from copy import deepcopy
 from controller.data_validator import DataValidator
 from models import column_model as cm
 from common import database_exceptions as ex
-from models.database import Database
+from models.database_model_singleton import DatabaseModelSingleton
 from controller.random_data_creator import RandomDataCreator
+from collections import Counter
 
 
 class TableModel:
@@ -19,7 +20,7 @@ class TableModel:
         self.__validator = validator
         self.__rnd_gen = random_data_gen
         self.__is_connection_table = is_connection_table
-        parent_db = Database()
+        parent_db = DatabaseModelSingleton()
         parent_db.add_table(self)
 
     def add_columns(self, columns: list[cm]):
@@ -32,18 +33,28 @@ class TableModel:
 
     def add_random_datasets(self, datasets_count: int):
         self.__is_col_adding_locked = True
+        temp_set = []
         for i in range(datasets_count):
             self.__id_count += 1
             data_set = []
-            for k, v in self.__columns.items():
+            for v in self.__columns.values():
                 if v.is_pk:
                     data = self.__id_count
                 elif v.is_fk:
                     data = self.__rnd_gen.create_matching_random_data(v.rand_data_info, v.fk_model.ref_count)
                 else:
                     data = self.__rnd_gen.create_matching_random_data(v.rand_data_info, datasets_count)
+
                 data_set.append(data)
-            self.__rows.append(data_set)
+
+                if v.limit_occurences:
+                    temp_set.append(f'{v.name} {data}')
+                    test = Counter(temp_set)
+                    if test[f'{v.name} {data}'] > v.max_occurences:
+                        data_set = []
+
+            if len(data_set) > 0:
+                self.__rows.append(data_set)
 
     def get_columns_list(self):
         ls = []

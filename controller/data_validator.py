@@ -1,5 +1,5 @@
 from datetime import datetime
-from models import column_model as cm, database as db
+from models import column_model as cm, database_model_singleton as db
 from common import data_types as dt
 
 

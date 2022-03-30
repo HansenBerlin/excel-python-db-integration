@@ -29,12 +29,12 @@
   },
   "PathToNameFiles":
   {
-    "FemaleLastNames": "data/femaleLastNames.json",
-    "FemaleFirstNames": "data/femaleFirstNames.json"
+    "FemaleLastNames": "femaleLastNames.json",
+    "FemaleFirstNames": "femaleFirstNames.json"
   },
   "DatabaseInfo":
   {
     "Name": "dsb_kocman",
-    "Schema": "women_rowing_trainingcamp"
+    "Schema": ""
   }
 }

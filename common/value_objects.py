@@ -1,5 +1,5 @@
-db_init = 'CREATE DATABASE <db_name>\nGO\nUSE <db_name>\nGO\n'
-table_clear = 'DROP TABLE IF EXISTS <schema_name>.<table_name>\nGO\n'
+db_init = 'DROP DATABASE IF EXISTS <db_name>\nGO\nCREATE DATABASE <db_name>\nGO\nUSE <db_name>\nGO\n'
+table_clear = 'DROP TABLE IF EXISTS <schema_name><table_name>\nGO\n'
 schema_init = 'DROP SCHEMA IF EXISTS <schema_name>\nGO\nCREATE SCHEMA <schema_name>\nGO\n'
 db_name_placeholder = '<db_name>'
 table_name_placeholder = '<table_name>'

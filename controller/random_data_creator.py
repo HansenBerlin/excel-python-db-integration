@@ -1,23 +1,20 @@
 import json
 import random as r
-from common import data_types as dt, value_objects as vo
+import common.data_types as dt
+import common.value_objects as vo
 from datetime import datetime
 
 
 class RandomDataCreator:
     def __init__(self, path_to_config_file: str):
-        file = open(path_to_config_file)
+        file = open(path_to_config_file + 'randomGeneratorConfig.json')
         config = json.load(file)
         self.__start_event_after = datetime.strptime(config['Event']['StartAfterDate'], '%Y-%m-%d %H:%M:%S')
         self.__end_event_before = datetime.strptime(config['Event']['EndBeforeDate'], '%Y-%m-%d %H:%M:%S')
         self.__start_bday_after = datetime.strptime(config['BirthdayRange']['AfterDate'], '%Y-%m-%d')
         self.__end_bday_before = datetime.strptime(config['BirthdayRange']['BeforeDate'], '%Y-%m-%d')
-        self.__path_first_names = config['PathToNameFiles']['FemaleFirstNames']
-        self.__path_last_names = config['PathToNameFiles']['FemaleLastNames']
-        self.__run_seconds_min_three_people = config['TimeRangeForRuns']['BoatWithThreePeople']['MinTimeInSecs']
-        self.__run_seconds_max_three_people = config['TimeRangeForRuns']['BoatWithThreePeople']['MaxTimeInSecs']
-        self.__run_seconds_min_four_people = config['TimeRangeForRuns']['BoatWithFourPeople']['MinTimeInSecs']
-        self.__run_seconds_max_four_people = config['TimeRangeForRuns']['BoatWithFourPeople']['MaxTimeInSecs']
+        self.__path_first_names = f'{path_to_config_file}\\' + config['PathToNameFiles']['FemaleFirstNames']
+        self.__path_last_names = f'{path_to_config_file}\\' + config['PathToNameFiles']['FemaleLastNames']
         self.__run_seconds_min_five_people = config['TimeRangeForRuns']['BoatWithFivePeople']['MinTimeInSecs']
         self.__run_seconds_max_five_people = config['TimeRangeForRuns']['BoatWithFivePeople']['MaxTimeInSecs']
 
@@ -38,7 +35,9 @@ class RandomDataCreator:
         elif rand_data_type is dt.RandomDataTypes.MEMBERCOUNT:
             return r.randrange(50, 2000)
         elif rand_data_type is dt.RandomDataTypes.SEATS:
-            return r.randrange(3, 6)
+            return r.randrange(5, 6)
+        elif rand_data_type is dt.RandomDataTypes.DISTANCEINMETERS:
+            return 1000
         elif rand_data_type is dt.RandomDataTypes.FEMALEFIRSTNAME \
                 or rand_data_type is dt.RandomDataTypes.FEMALELASTNAME:
             return f"'{self.__generate_random_name(rand_data_type)}'"
@@ -69,5 +68,6 @@ class RandomDataCreator:
         return r.choice(names)
 
     def __generate_random_time_for_run(self):
-        return r.uniform(self.__run_seconds_min_three_people, self.__run_seconds_max_three_people)
+        return r.uniform(self.__run_seconds_min_five_people, self.__run_seconds_max_five_people)
+
 

@@ -1,4 +1,3 @@
-
 class ForeignKeyModel:
     def __init__(self, ref_count: int, ref_table: str, ref_col: str, ref_schema: str = ''):
         self.ref_count = ref_count

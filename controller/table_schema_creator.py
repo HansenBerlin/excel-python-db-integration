@@ -1,10 +1,10 @@
-from models import table_model as tm, database as db
+from models import table_model as tm, database_model_singleton as db
 import common.value_objects as vo
 
 
 class TableSchemaCreator:
     def __init__(self, db_name: str, schema_name: str, database: db):
-        self.__file = f'{db_name}.txt'
+        self.__file = f'create-database.sql'
         self.__db_name = db_name
         self.__db = database
         self.__schema_name = schema_name
@@ -30,15 +30,15 @@ class TableSchemaCreator:
             temp = temp.replace(vo.table_name_placeholder, table.name)
             content += temp
         tables.reverse()
-        content += vo.schema_init
-        #content += vo.db_init
+        #content += vo.schema_init
+        content += vo.db_init
         content = content.replace(vo.schema_name_placeholder, self.__schema_name)
         content = content.replace(vo.db_name_placeholder, self.__db_name)
         return content
 
     @staticmethod
     def __concat_createtable_entities_to_string(table: tm):
-        base = f'\nCREATE TABLE {table.schema}.{table.name} ('
+        base = f'\nCREATE TABLE {table.schema}{table.name} ('
         content = ''
         cols = table.get_columns_list()
         for col in cols:
@@ -63,7 +63,7 @@ class TableSchemaCreator:
             cn_temp = cn_temp[:-2]
             cn_values += f'({cn_temp}),\n'
         cn_values = cn_values[:-2]
-        return f'\nINSERT INTO {table.schema}.{table.name} ({cn_insert}) VALUES {cn_values}\nGO'
+        return f'\nINSERT INTO {table.schema}{table.name} ({cn_insert}) VALUES {cn_values}\nGO'
 
 
 
