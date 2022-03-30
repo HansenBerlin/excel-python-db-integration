@@ -1,12 +1,12 @@
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY out /usr/src/app
+COPY . /usr/src/app
 
 RUN chmod +x /usr/src/app/run-initialization.sh
 
-ENV SA_PASSWORD CorrectHorseBatteryStapleFor$
+ENV SA_PASSWORD 1234!!!sssSSS
 ENV ACCEPT_EULA Y
 ENV MSSQL_PID Express
 

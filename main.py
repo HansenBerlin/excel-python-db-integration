@@ -88,9 +88,7 @@ creator = TableSchemaCreator(db_name, schema_name, database)
 creator.create_table_schema_in_file()
 
 
-return_code = subprocess.call('cd out', shell=True)
+return_code = subprocess.call('docker build -t db-demo .', shell=True)
 if return_code == 0:
-    return_code = subprocess.call('dir', shell=True)
-    return_code = subprocess.call('docker build -t db-demo .', shell=True)
-if return_code == 0:
-    return_code = subprocess.call('docker run -p 1000:1433 -d db-demo', shell=True)
+    return_code = subprocess.call('docker run --rm --name dsb-kocman -p 1433:1433 -d db-demo', shell=True)
+print(return_code)
